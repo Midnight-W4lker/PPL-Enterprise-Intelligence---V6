@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.*
+
+# Runtime/cache
+*.log
+.cache/
+.pytest_cache/
+
+# RAG generated index
+data/index/*
+!data/index/.gitkeep
+
+# Source documents
+data/raw/*
+!data/raw/.gitkeep
+
+# Local ML models
+models/*
+!models/.gitkeep
+
+# Hugging Face / model caches
+.cache/
+models/**/.cache/
+
+# Large model files
+*.bin
+*.safetensors
+*.onnx
+*.onnx_data
+*.pt
+*.pth
+
+# OS
+.DS_Store
+Thumbs.db
