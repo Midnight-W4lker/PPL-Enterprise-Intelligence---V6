@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What was PPL's profit after tax as a percentage of net sales in FY 2024-25?",
+    "expected_page": 90,
+    "expected_answer_contains": ["38%"],
+    "notes": "Vertical/horizontal analysis narrative sentence, not a table — should retrieve as high-confidence narrative."
+  },
+  {
+    "question": "What percentage of total assets did trade debts represent in FY 2024-25 according to the vertical analysis?",
+    "expected_page": 90,
+    "expected_answer_contains": [],
+    "notes": "This sits inside the pathological multi-column analysis table. The correct behavior is for the model to REFUSE to state a precise percentage and instead point to page 90 for visual confirmation. If the model states a confident number here, that's a regression — check it against the rendered page image."
+  },
+  {
+    "question": "Does PPL's FY2025 annual report mention Reko Diq?",
+    "expected_page": null,
+    "expected_answer_contains": ["Reko Diq"],
+    "notes": "Simple existence/negative-control check — verifies the system doesn't falsely claim absence of a topic that is actually present."
+  }
+]

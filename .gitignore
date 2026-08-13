@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.vscode/
+.idea/
+*.log
+
+# IMPORTANT: unlike your local desktop repo, data/raw/*.pdf is INTENTIONALLY tracked here.
+# Cloud Run has no persistent disk between deploys — the source PDFs must ship inside the image
+# itself (via git -> Cloud Build) so the Dockerfile's ingest step has something to build from.
+# data/index/* is also fine to leave untracked, since it's rebuilt fresh on every image build.
+data/index/*
+!data/index/.gitkeep
+
+# models/ is NOT tracked — fetched at Cloud Build time by app/download_models.py instead, so
+# ~4-5GB of binary model weights never touch git.
+models/*
+!models/.gitkeep

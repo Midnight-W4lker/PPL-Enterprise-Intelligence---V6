@@ -1,0 +1,13 @@
+{
+  "_comment": "Optional. Rename this file to manifest.json (same folder as the PDFs) to override the automatic filename-based year/quarter/type detection in app/ingest.py. Only needed for files whose name doesn't clearly contain a year/quarter — safer than trusting regex guessing once you have many reports.",
+  "PPL_AR_2025.pdf": {
+    "fiscal_year": 2025,
+    "document_type": "annual_report",
+    "reporting_period": "FY2025"
+  },
+  "PPL_Q1_2026.pdf": {
+    "fiscal_year": 2026,
+    "document_type": "quarterly_report",
+    "reporting_period": "Q1"
+  }
+}

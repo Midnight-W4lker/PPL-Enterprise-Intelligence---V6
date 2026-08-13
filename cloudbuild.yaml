@@ -1,0 +1,14 @@
+# Optional: use this if the default `gcloud run deploy --source .` build times out or runs low on
+# resources during the `RUN python -m app.ingest` step (full-size models + full document is
+# heavier than the default Cloud Build machine may comfortably handle). Deploy with:
+#   gcloud builds submit --config cloudbuild.yaml
+#   gcloud run deploy ppl-enterprise-intelligence --image gcr.io/PROJECT_ID/ppl-enterprise-intelligence --region us-central1
+options:
+  machineType: 'E2_HIGHCPU_8'   # 8 vCPU build machine instead of the default — bump further (E2_HIGHCPU_32) if this still isn't enough
+  diskSizeGb: 50
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/ppl-enterprise-intelligence', '.']
+images:
+  - 'gcr.io/$PROJECT_ID/ppl-enterprise-intelligence'
+timeout: 1800s
